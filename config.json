@@ -1,0 +1,35 @@
+{
+    "production":{
+        "port": 80,
+        "mongodb_url": "mongodb://localhost:27017/storesmaps",
+        "smtp_host" : "smtp.gmail.com",
+        "smtp_port" : 465,
+        "smtp_secure" : true,
+        "smtp_auth" : {
+            "user": "@gmail.com",
+            "password" : ""
+        }
+    },
+    "testing":{
+        "port": 1200,
+        "mongodb_url": "mongodb://localhost:27017/storesmaps",
+        "smtp_host" : "smtp.gmail.com",
+        "smtp_port" : 465,
+        "smtp_secure" : true,
+        "smtp_auth" : {
+            "user": "@gmail.com",
+            "password" : ""
+        }
+    },
+    "development":{
+        "port": 1200,
+        "mongodb_url": "mongodb://localhost:27017/storesmaps",
+        "smtp_host" : "smtp.gmail.com",
+        "smtp_port" : 465,
+        "smtp_secure" : true,
+        "smtp_auth" : {
+            "user": "@gmail.com",
+            "password" : ""
+        }
+    }
+}
