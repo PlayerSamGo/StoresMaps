@@ -41,6 +41,42 @@ function register(req,res){
 
 }
 
+function login(req,res){
+    let params = req.body;
+
+    const email = params.email;
+    const password = params.password;
+
+    //Validate params
+    let user = new User();
+    user.email = email;
+    user.password = password;
+
+    //Temp filled needed for Validation in the Schema
+    user.username = "Lorem ipsum";
+
+    user.validate((errors)=>{
+        if (errors) {
+            return res.status(400).send({message:'user.errors',errors});
+        }
+        User.findOne({email:email.toLowerCase()},(errors,userStored)=>{
+            if(errors){
+                return res.status(400).send({message:'bad.request'});
+            }
+            if(!userStored){
+                return res.status(401).send({message:'bad.credentials'});
+            }
+            bcrypt.compare(password,userStored.password,(errors,check)=>{
+                if(check){
+                    return res.status(200).send({message:'login.successful'});
+                }
+                res.status(401).send({message:'bad.credentials'});
+            }); 
+        });
+    });
+}
+
 module.exports = {
-    register
+    register,
+    login
 };
