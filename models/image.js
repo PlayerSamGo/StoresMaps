@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Utilities = require('../services/utilities');
+//const Utilities = require('../services/utilities');
 
 let ImageSchema = new Schema({
     fileName: String,
@@ -23,14 +23,14 @@ ImageSchema.pre('save',function(next){
 ImageSchema.pre('remove',function(next){
     if(this.userId!="undefined"){
         //delete file image from server
-        Utilities.eraseFileFromFileName('users',this.fileName);
+        //Utilities.eraseFileFromFileName('users',this.fileName);
         //remove image of store
         this.model('User').update({image:this._id},{image:undefined}).exec();
     }
     // console.log('before delete image '+this._id);
     if(this.storeId!="undefined"){
         //delete file image from server
-        Utilities.eraseFileFromFileName('stores',this.fileName);
+        //Utilities.eraseFileFromFileName('stores',this.fileName);
         //remove image of store
         this.model('Store').update({images:this._id},{image:undefined}).exec();
     }
