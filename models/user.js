@@ -38,7 +38,7 @@ let UserSchema = new Schema({
             message: 'Contraseña no debe ser blanca'
         },
         minlength: [8, 'El contraseña de usuario debe tener al menos 8 caracteres'],
-        maxlength: [30, 'El contraseña de usuario no debe exceder los 30 caracteres']
+        maxlength: [320, 'El contraseña de usuario no debe exceder los 320 caracteres']
     },
     name:{
         type:String,

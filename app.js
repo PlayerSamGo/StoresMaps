@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
+let userRoutes = require('./routes/user');
+
 let app = express();
 
 app.use(morgan('dev'));
@@ -18,6 +20,7 @@ app.use((req,res,next)=>{
     next();
   });
 
-//app.use('api/')
+
+app.use('/api/user',userRoutes);
 
 module.exports = app;
