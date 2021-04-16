@@ -13,12 +13,12 @@ let server = require('http').createServer(app); //Server with express
 
 //Connection db
 mongoose.Promise = global.Promise;
-mongoose.connect(config.mongodb_url, {useNewUrlParser: true, useUnifiedTopology: true },(err,res) =>{
+mongoose.connect(config.mongodb_url, { useUnifiedTopology: true, useNewUrlParser: true },(err,res) =>{
     if(err){
       throw err;
     }
     else{
-      console.log("Conection sucessfull");
+      console.log("Connection successful");
       server.listen(port, function(){
         console.log("Api Rest server listen on http://localhost:"+port);
       })
