@@ -1,7 +1,7 @@
 {
     "production":{
         "port": 80,
-        "mongodb_url": "mongodb://localhost:27017/storesmaps",
+        "mongodb_url": "mongodb://cloundAWS:654654/storesmapsprod",
         "smtp_host" : "smtp.gmail.com",
         "smtp_port" : 465,
         "smtp_secure" : true,
