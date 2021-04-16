@@ -15,6 +15,7 @@ let server = require('http').createServer(app); //Server with express
 mongoose.Promise = global.Promise;
 mongoose.connect(config.mongodb_url, { useUnifiedTopology: true, useNewUrlParser: true },(err,res) =>{
     if(err){
+      console.error("Connection errors");
       throw err;
     }
     else{
